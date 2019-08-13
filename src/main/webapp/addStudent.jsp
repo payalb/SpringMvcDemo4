@@ -11,7 +11,7 @@
 Name: <input type="text" required="required" name="name"/><br/>
 Age: <input type="number" required="required" name="age"/><br/>
 DOB: <input type="date" required="required" name="dob"/><br/>
-Gender:<br/> Male<input type="radio" name="gender" value="m"/>&nbsp;
+Gender:<br/> Male<input type="radio" name="gender" value="m" />&nbsp;
 Female<input type="radio"name="gender" value="f"/><br/>
 Subjects:  Java:<input type="checkbox"  name="subjects" value="Java"/>
 &nbsp; J2ee:<input type="checkbox" name="subjects" value="J2ee"/>

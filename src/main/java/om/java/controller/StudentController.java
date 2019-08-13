@@ -3,6 +3,8 @@ package om.java.controller;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +27,15 @@ public class StudentController {
 	LocalDateEditor editor;
 
 	@PostMapping("/addStudent.do")
-	public String addStudent( @ModelAttribute Student st,BindingResult result,  Model model) {
+	public String addStudent(@Valid @ModelAttribute Student st,BindingResult result,  Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("errorMsg", result.getAllErrors().stream().map(x-> x.getDefaultMessage()).collect(Collectors.toList()));
 			return "addStudent";
 		}else {
 			rep.save(st);
-			return "success";
+		//	return "success";//returning a view name
+			//forward it to  a url "forward:/getStudent.do"
+			return "redirect:/getStudent.do";//"redirect:/getStudent.do"
 		}
 	}
 
